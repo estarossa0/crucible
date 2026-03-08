@@ -54,7 +54,7 @@ CLI → Commander.js (src/index.ts) → Ink App (src/app.tsx)
 - **Components and .tsx files:** PascalCase filenames (`StatusBar.tsx`, `ForgeMode.tsx`)
 - **Utilities/Services and .ts files:** camelCase filenames (`forgeRunner.ts`, `shell.ts`)
 - **Barrel exports:** Every directory has an `index.ts` re-exporting public APIs
-- **Locked Version:** Every installed package must be stripped out of "^" to lock the version
+- **Locked Version:** Every installed package use the --exact argument, no package should have the '^'
 
 ## Implementation preference:
 

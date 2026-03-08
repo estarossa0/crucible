@@ -6,17 +6,27 @@ import { useApp } from '@logic/AppContext';
 import { AppKeyBindings } from '@logic/AppKeyBindings';
 import { KeyHints, StatusBar } from '@ui/index';
 
+const arrowUp = '\u2191';
+const arrowDown = '\u2193';
 const OVERLAY_HINTS = [
-  { key: '\u2191\u2193', action: 'navigate' },
+  { key: `${arrowUp}${arrowDown}`, action: 'navigate' },
+  { key: 'tab', action: 'fill' },
   { key: 'enter', action: 'select' },
   { key: 'esc', action: 'close' },
 ];
 
-interface LayoutProps {
-  children: ReactNode;
+interface KeyHint {
+  key: string;
+  action: string;
+  disabled?: boolean;
 }
 
-export function Layout({ children }: LayoutProps) {
+interface LayoutProps {
+  children: ReactNode;
+  modeHints?: KeyHint[];
+}
+
+export function Layout({ children, modeHints }: LayoutProps) {
   const { width, height } = useTerminalSize();
   const { enabledOverlay } = useApp();
 
@@ -45,7 +55,7 @@ export function Layout({ children }: LayoutProps) {
           borderRight={false}
           justifyContent="space-between"
         >
-          <Box>{/* mode-specific keybindings (left) */}</Box>
+          <Box>{modeHints && <KeyHints hints={modeHints} />}</Box>
           {enabledOverlay !== null ? (
             <Box>
               <KeyHints hints={OVERLAY_HINTS} />
