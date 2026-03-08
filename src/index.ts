@@ -1,6 +1,6 @@
 import { Command } from 'commander';
-import { Mode } from './lib/index.ts';
-import { bootstrap } from './main.ts';
+import { Mode } from './lib/index';
+import { bootstrap } from './main';
 
 const program = new Command()
   .name('crucible')

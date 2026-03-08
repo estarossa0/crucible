@@ -1,3 +1,3 @@
-export { chainList, RPC_URLS } from './chains.ts';
-export { config } from './config.ts';
-export { Chain, Mode } from './types.ts';
+export { chainList, RPC_URLS } from './chains';
+export { config } from './config';
+export { Chain, Mode } from './types';

@@ -1,4 +1,4 @@
-import { Mode } from './types.ts';
+import { Mode } from './types';
 
 export const config = {
   defaultMode: Mode.Forge,

@@ -1,4 +1,4 @@
-import { Chain } from './types.ts';
+import { Chain } from './types';
 
 const ALCHEMY_SUBDOMAINS: Record<Chain, string | null> = {
   [Chain.Mainnet]: 'eth-mainnet',

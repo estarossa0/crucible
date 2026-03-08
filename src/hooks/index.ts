@@ -1,1 +1,1 @@
-export { useTerminalSize } from './useTerminalSize.ts';
+export { useTerminalSize } from './useTerminalSize';

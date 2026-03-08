@@ -1,5 +1,5 @@
 import { Box, Text } from 'ink';
-import { useApp } from '../app/AppContext.tsx';
+import { useApp } from '../app/AppContext';
 
 export function StatusBar() {
   const { mode, chain } = useApp();

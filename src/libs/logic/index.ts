@@ -1,1 +1,1 @@
-export { AppKeyBindings } from './AppKeyBindings.tsx';
+export { AppKeyBindings } from './AppKeyBindings';

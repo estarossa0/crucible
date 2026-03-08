@@ -1,2 +1,2 @@
-export { AppProvider, useApp } from './AppContext.tsx';
-export { Layout } from './Layout.tsx';
+export { AppProvider, useApp } from './AppContext';
+export { Layout } from './Layout';

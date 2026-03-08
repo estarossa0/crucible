@@ -1,6 +1,6 @@
 import { Box, useInput } from 'ink';
-import { useApp } from '../../app/index.ts';
-import { KeyHints } from '../../ui/KeyHints.tsx';
+import { useApp } from '../../app/index';
+import { KeyHints } from '../../ui/KeyHints';
 
 const DEFAULT_HINTS = [
   { key: 'c', action: 'chain' },

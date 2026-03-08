@@ -1,6 +1,6 @@
 import { type AppProps, useApp as useInkApp } from 'ink';
 import { createContext, type ReactNode, useCallback, useContext, useState } from 'react';
-import { Chain, chainList, type Mode, RPC_URLS } from '../lib/index.ts';
+import { Chain, chainList, type Mode, RPC_URLS } from '../lib/index';
 
 interface AppState {
   mode: Mode;
