@@ -1,8 +1,9 @@
+import { Box } from 'ink';
+import { type ReactNode } from 'react';
+
 import { useTerminalSize } from '@hooks/index';
 import { AppKeyBindings } from '@logic/index';
 import { StatusBar } from '@ui/StatusBar';
-import { Box } from 'ink';
-import { type ReactNode } from 'react';
 
 interface LayoutProps {
   children: ReactNode;

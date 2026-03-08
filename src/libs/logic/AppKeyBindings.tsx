@@ -1,6 +1,7 @@
+import { Box, useInput } from 'ink';
+
 import { useApp } from '@logic/AppContext';
 import { KeyHints } from '@ui/KeyHints';
-import { Box, useInput } from 'ink';
 
 const DEFAULT_HINTS = [
   { key: 'c', action: 'chain' },

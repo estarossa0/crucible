@@ -18,6 +18,7 @@ function getUrl(subdomain: string): string {
 export const RPC_URLS: Record<Chain, string> = Object.fromEntries(
   Object.values(Chain).map((chain) => {
     const subdomain = ALCHEMY_SUBDOMAINS[chain];
+
     return [chain, subdomain ? getUrl(subdomain) : ''];
   }),
 ) as Record<Chain, string>;

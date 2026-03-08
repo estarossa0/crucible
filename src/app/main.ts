@@ -1,7 +1,8 @@
-import App from '@app/App';
-import { config, type Mode } from '@utils/index';
 import { render } from 'ink';
 import React from 'react';
+
+import App from '@app/App';
+import { config, type Mode } from '@utils/index';
 
 function validateEnv() {
   if (!process.env.ALCHEMY_API_KEY) {

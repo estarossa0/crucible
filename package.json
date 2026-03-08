@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --watch src/index.ts",
-    "lint": "biome lint --write .",
+    "lint": "biome lint --write . && eslint --fix src/",
+    "eslint": "eslint --fix src/",
     "format": "biome format --write .",
     "check": "biome check --write .",
     "types": "tsc --noEmit",
@@ -12,10 +13,13 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.6",
+    "@stylistic/eslint-plugin": "5.10.0",
     "@types/bun": "latest",
     "@types/react": "19.1.2",
+    "eslint": "10.0.3",
     "husky": "9.1.7",
-    "lint-staged": "16.3.2"
+    "lint-staged": "16.3.2",
+    "typescript-eslint": "8.56.1"
   },
   "peerDependencies": {
     "typescript": "5"
@@ -26,6 +30,7 @@
     "react": "19.2.4"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,json}": "biome check --write --no-errors-on-unmatched"
+    "*.{ts,tsx,js,jsx,json}": "biome check --write --no-errors-on-unmatched",
+    "*.{ts,tsx}": "eslint --fix"
   }
 }

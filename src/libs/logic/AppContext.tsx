@@ -1,6 +1,7 @@
-import { Chain, chainList, type Mode, RPC_URLS } from '@utils/index';
 import { type AppProps, useApp as useInkApp } from 'ink';
 import { createContext, type ReactNode, useCallback, useContext, useState } from 'react';
+
+import { Chain, chainList, type Mode, RPC_URLS } from '@utils/index';
 
 interface AppState {
   mode: Mode;
@@ -36,6 +37,7 @@ export function AppProvider({ initialMode, children }: AppProviderProps) {
   const cycleChain = useCallback(() => {
     setChain((current) => {
       const idx = chainList.indexOf(current);
+
       return chainList[(idx + 1) % chainList.length] as Chain;
     });
   }, []);
