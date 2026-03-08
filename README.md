@@ -1,5 +1,7 @@
 # Crucible
 
+![Crucible Hero](docs/media/crucible-hero.png)
+
 **A persistent interactive TUI for Forge and Cast.**
 
 ## Problem
@@ -94,29 +96,47 @@ $ crucible cast
 ```
 crucible/
 ├── src/
-│   ├── index.ts              # Entry point — Commander.js parses "forge" or "cast"
-│   ├── app.tsx               # Root Ink app — routes to ForgeMode or CastMode
-│   ├── forge/
-│   │   ├── ForgeMode.tsx     # Forge REPL UI component
-│   │   ├── forgeRunner.ts    # Effect service: builds & runs forge commands
-│   │   ├── forgeState.ts     # State types for forge mode
-│   │   └── index.ts          # Barrel export
-│   ├── cast/
-│   │   ├── CastMode.tsx      # Cast REPL UI component
-│   │   ├── castRunner.ts     # Effect service: builds & runs cast commands
-│   │   ├── castState.ts      # State types for cast mode
-│   │   └── index.ts          # Barrel export
-│   ├── ui/
-│   │   ├── StatusBar.tsx     # Top bar showing current params
-│   │   ├── OutputPanel.tsx   # Scrollable output area
-│   │   ├── KeyHints.tsx      # Bottom bar with keybinding hints
-│   │   ├── TextPrompt.tsx    # Inline text input for addresses/paths
-│   │   └── index.ts          # Barrel export
-│   └── lib/
-│       ├── shell.ts          # Effect wrapper around Bun.spawn
-│       ├── chains.ts         # Chain name → RPC URL mapping
-│       ├── types.ts          # Shared types
-│       └── index.ts          # Barrel export
+│   ├── index.ts                        # Entry point — Commander.js parses "forge" or "cast"
+│   ├── app/
+│   │   ├── App.tsx                     # Root Ink app — routes to ForgeMode or CastMode
+│   │   ├── main.ts                     # Ink render bootstrap
+│   │   └── index.ts                    # Barrel export
+│   └── libs/
+│       ├── logic/
+│       │   ├── AppContext.tsx           # Global app context provider
+│       │   ├── AppKeyBindings.tsx       # Top-level keybinding handler
+│       │   ├── Layout.tsx              # Main layout component
+│       │   ├── SelectedChain/
+│       │   │   ├── ChainSelect.tsx     # Chain selection dropdown
+│       │   │   ├── SelectedChain.tsx   # Selected chain display/state
+│       │   │   └── index.ts
+│       │   ├── cast/
+│       │   │   ├── CastMode.tsx        # Cast REPL UI component
+│       │   │   ├── CastKeyBindings.tsx # Cast-specific keybinding handler
+│       │   │   └── index.ts
+│       │   ├── commands/
+│       │   │   ├── castCommands.ts     # Cast subcommand registry
+│       │   │   ├── types.ts            # Command type definitions
+│       │   │   └── index.ts
+│       │   └── index.ts
+│       ├── ui/
+│       │   ├── StatusBar.tsx           # Top bar showing current params
+│       │   ├── OutputPanel.tsx         # Scrollable output area
+│       │   ├── KeyHints.tsx            # Bottom bar with keybinding hints
+│       │   ├── TextPrompt.tsx          # Inline text input for addresses/paths
+│       │   ├── TextInput.tsx           # Base text input component
+│       │   ├── Select.tsx              # Inline dropdown select menu
+│       │   └── index.ts
+│       ├── hooks/
+│       │   ├── useCommandRunner.ts     # Hook for running shell commands
+│       │   ├── useTerminalSize.ts      # Hook for terminal dimensions
+│       │   └── index.ts
+│       └── utils/
+│           ├── shell.ts                # Bun.spawn wrapper
+│           ├── chains.ts               # Chain name → RPC URL mapping
+│           ├── config.ts               # App configuration
+│           ├── types.ts                # Shared types
+│           └── index.ts
 ├── package.json
 ├── tsconfig.json
 └── README.md
