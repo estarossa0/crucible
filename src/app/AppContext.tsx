@@ -1,4 +1,4 @@
-import { type AppProps, useApp as useInkApp, useInput } from 'ink';
+import { type AppProps, useApp as useInkApp } from 'ink';
 import { createContext, type ReactNode, useCallback, useContext, useState } from 'react';
 import { Chain, chainList, type Mode, RPC_URLS } from '../lib/index.ts';
 
@@ -30,11 +30,6 @@ interface AppProviderProps {
 export function AppProvider({ initialMode, children }: AppProviderProps) {
   const inkApp = useInkApp();
 
-  useInput((input, key) => {
-    if (input === 'q' || (key.ctrl && input === 'c')) {
-      inkApp.exit();
-    }
-  });
   const [mode, setMode] = useState<Mode>(initialMode);
   const [chain, setChain] = useState<Chain>(Chain.Mainnet);
 

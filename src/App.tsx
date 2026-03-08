@@ -1,4 +1,4 @@
-import { Text, useInput } from 'ink';
+import { Text } from 'ink';
 import { AppProvider, Layout, useApp } from './app/index.ts';
 import { type Mode } from './lib/index.ts';
 
@@ -7,13 +7,7 @@ interface AppProps {
 }
 
 function AppInner() {
-  const { mode, cycleChain } = useApp();
-
-  useInput((input) => {
-    if (input === 'c') {
-      cycleChain();
-    }
-  });
+  const { mode } = useApp();
 
   return (
     <Layout>

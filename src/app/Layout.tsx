@@ -1,13 +1,8 @@
 import { Box } from 'ink';
 import { type ReactNode } from 'react';
 import { useTerminalSize } from '../hooks/index.ts';
-import { KeyHints } from '../ui/KeyHints.tsx';
+import { AppKeyBindings } from '../libs/logic/index.ts';
 import { StatusBar } from '../ui/StatusBar.tsx';
-
-const DEFAULT_HINTS = [
-  { key: 'c', action: 'chain' },
-  { key: 'q', action: 'quit' },
-];
 
 interface LayoutProps {
   children: ReactNode;
@@ -26,8 +21,9 @@ export function Layout({ children }: LayoutProps) {
         {children}
       </Box>
 
-      <Box>
-        <KeyHints hints={DEFAULT_HINTS} />
+      <Box justifyContent="space-between">
+        <Box>{/* mode-specific keybindings (left) */}</Box>
+        <AppKeyBindings />
       </Box>
     </Box>
   );
