@@ -11,7 +11,9 @@ function validateEnv() {
   }
 }
 
-export function bootstrap(mode?: Mode) {
+export async function bootstrap(mode?: Mode) {
   validateEnv();
-  render(React.createElement(App, { mode: mode ?? config.defaultMode }));
+  const app = render(React.createElement(App, { mode: mode ?? config.defaultMode }));
+  await app.waitUntilExit();
+  process.exit(0);
 }
