@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Text } from "ink";
-import { useAppContext } from "../app/AppContext.tsx";
+import { useApp } from "../app/AppContext.tsx";
 
 export function StatusBar() {
-  const { mode, chain } = useAppContext();
+  const { mode, chain } = useApp();
 
   return (
     <Box gap={2}>

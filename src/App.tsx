@@ -1,24 +1,18 @@
-import React from "react";
-import { Text, useApp, useInput } from "ink";
-import { type Mode } from "./lib/index.ts";
-import { AppProvider, useAppContext, Layout } from "./app/index.ts";
+import React from 'react';
+import { Text, useInput } from 'ink';
+import { type Mode } from './lib/index.ts';
+import { AppProvider, useApp, Layout } from './app/index.ts';
 
 interface AppProps {
   mode: Mode;
 }
 
 function AppInner() {
-  const { exit } = useApp();
-  const { mode, cycleChain } = useAppContext();
+  const { mode, cycleChain } = useApp();
 
-  useInput((input, key) => {
-    if (input === "q" || (key.ctrl && input === "c")) {
-      exit();
-      return;
-    }
-    if (input === "c") {
+  useInput((input) => {
+    if (input === 'c') {
       cycleChain();
-      return;
     }
   });
 

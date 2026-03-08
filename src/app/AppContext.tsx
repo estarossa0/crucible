@@ -1,13 +1,14 @@
-import React, { createContext, useContext, useState, useCallback } from "react";
-import type { ReactNode } from "react";
-import { Chain, Mode, RPC_URLS, chainList } from "../lib/index.ts";
+import React, { createContext, useContext, useState, useCallback } from 'react';
+import type { ReactNode } from 'react';
+import { useApp as useInkApp, useInput, type AppProps } from 'ink';
+import { Chain, Mode, RPC_URLS, chainList } from '../lib/index.ts';
 
 interface AppState {
   mode: Mode;
   chain: Chain;
 }
 
-interface AppContextValue extends AppState {
+interface AppContextValue extends AppState, AppProps {
   rpcUrl: string;
   setMode: (mode: Mode) => void;
   setChain: (chain: Chain) => void;
@@ -16,9 +17,9 @@ interface AppContextValue extends AppState {
 
 const AppContext = createContext<AppContextValue | null>(null);
 
-export function useAppContext(): AppContextValue {
+export function useApp(): AppContextValue {
   const ctx = useContext(AppContext);
-  if (!ctx) throw new Error("useAppContext must be used within AppProvider");
+  if (!ctx) throw new Error('useApp must be used within AppProvider');
   return ctx;
 }
 
@@ -28,6 +29,13 @@ interface AppProviderProps {
 }
 
 export function AppProvider({ initialMode, children }: AppProviderProps) {
+  const inkApp = useInkApp();
+
+  useInput((input, key) => {
+    if (input === 'q' || (key.ctrl && input === 'c')) {
+      inkApp.exit();
+    }
+  });
   const [mode, setMode] = useState<Mode>(initialMode);
   const [chain, setChain] = useState<Chain>(Chain.Mainnet);
 
@@ -41,14 +49,17 @@ export function AppProvider({ initialMode, children }: AppProviderProps) {
   const rpcUrl = RPC_URLS[chain];
 
   return (
-    <AppContext value={{
-      mode,
-      chain,
-      rpcUrl,
-      setMode,
-      setChain,
-      cycleChain,
-    }}>
+    <AppContext
+      value={{
+        ...inkApp,
+        mode,
+        chain,
+        rpcUrl,
+        setMode,
+        setChain,
+        cycleChain,
+      }}
+    >
       {children}
     </AppContext>
   );
