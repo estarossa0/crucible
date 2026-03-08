@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, Text } from "ink";
+import { Box, Text } from 'ink';
 
 interface KeyHint {
   key: string;
@@ -14,8 +13,8 @@ interface KeyHintsProps {
 export function KeyHints({ hints }: KeyHintsProps) {
   return (
     <Box gap={2}>
-      {hints.map((hint, i) => (
-        <Box key={i}>
+      {hints.map((hint) => (
+        <Box key={`${hint.key}:${hint.action}`}>
           <Text dimColor={hint.disabled} bold color="cyan">
             {hint.key}
           </Text>

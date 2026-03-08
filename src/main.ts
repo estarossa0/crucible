@@ -1,12 +1,11 @@
-import React from "react";
-import { render } from "ink";
-import type { Mode } from "./lib/index.ts";
-import { config } from "./lib/index.ts";
-import App from "./App.tsx";
+import { render } from 'ink';
+import React from 'react';
+import App from './App.tsx';
+import { config, type Mode } from './lib/index.ts';
 
 function validateEnv() {
-  if (!process.env["ALCHEMY_API_KEY"]) {
-    console.error("ALCHEMY_API_KEY environment variable is required.");
+  if (!process.env.ALCHEMY_API_KEY) {
+    console.error('ALCHEMY_API_KEY environment variable is required.');
     process.exit(1);
   }
 }

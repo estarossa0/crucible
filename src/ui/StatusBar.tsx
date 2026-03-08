@@ -1,6 +1,5 @@
-import React from "react";
-import { Box, Text } from "ink";
-import { useApp } from "../app/AppContext.tsx";
+import { Box, Text } from 'ink';
+import { useApp } from '../app/AppContext.tsx';
 
 export function StatusBar() {
   const { mode, chain } = useApp();

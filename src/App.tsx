@@ -1,7 +1,6 @@
-import React from 'react';
 import { Text, useInput } from 'ink';
+import { AppProvider, Layout, useApp } from './app/index.ts';
 import { type Mode } from './lib/index.ts';
-import { AppProvider, useApp, Layout } from './app/index.ts';
 
 interface AppProps {
   mode: Mode;
