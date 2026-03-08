@@ -1,6 +1,6 @@
+import { bootstrap } from '@app/main';
+import { Mode } from '@utils/index';
 import { Command } from 'commander';
-import { Mode } from './lib/index';
-import { bootstrap } from './main';
 
 const program = new Command()
   .name('crucible')

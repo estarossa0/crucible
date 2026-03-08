@@ -1,2 +1,2 @@
-export { AppProvider, useApp } from './AppContext';
-export { Layout } from './Layout';
+export { AppProvider, useApp } from '@logic/AppContext';
+export { Layout } from '@logic/Layout';

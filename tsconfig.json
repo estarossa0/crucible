@@ -14,6 +14,16 @@
     "verbatimModuleSyntax": true,
     "noEmit": true,
 
+    // Path aliases
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@logic/*": ["src/libs/logic/*"],
+      "@hooks/*": ["src/libs/hooks/*"],
+      "@ui/*": ["src/libs/ui/*"],
+      "@utils/*": ["src/libs/utils/*"]
+    },
+
     // Best practices
     "strict": true,
     "skipLibCheck": true,
