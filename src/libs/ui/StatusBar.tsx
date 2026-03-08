@@ -7,7 +7,7 @@ export function StatusBar() {
   const { mode } = useApp();
 
   return (
-    <Box gap={2}>
+    <Box backgroundColor="black" gap={2}>
       <Text bold color="green">
         {mode.toUpperCase()}
       </Text>

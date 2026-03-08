@@ -1,11 +1,11 @@
-import { Box, Text, useInput } from 'ink';
+import { Box, type BoxProps, Text, useInput } from 'ink';
 
 export interface SelectOption<T> {
   label: string;
   value: T;
 }
 
-interface SelectProps<T> {
+interface SelectProps<T> extends BoxProps {
   options: SelectOption<T>[];
   value: T;
   onChange: (value: T) => void;
@@ -13,7 +13,14 @@ interface SelectProps<T> {
   onCancel: () => void;
 }
 
-export function Select<T>({ options, value, onChange, onConfirm, onCancel }: SelectProps<T>) {
+export function Select<T>({
+  options,
+  value,
+  onChange,
+  onConfirm,
+  onCancel,
+  ...boxProps
+}: SelectProps<T>) {
   useInput((_input, key) => {
     if (key.return) {
       if (options.length > 0) onConfirm(value);
@@ -36,7 +43,7 @@ export function Select<T>({ options, value, onChange, onConfirm, onCancel }: Sel
   });
 
   return (
-    <Box flexDirection="column">
+    <Box flexDirection="column" {...boxProps}>
       {options.map((option) => {
         const isHighlighted = option.value === value;
 

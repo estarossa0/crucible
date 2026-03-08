@@ -12,7 +12,12 @@ function AppInner() {
 
   return (
     <Layout>
-      <Text>Crucible ready. Mode: {mode}</Text>
+      <Text>
+        Crucible ready. Mode: {mode}Crucible ready. Mode: {mode}Crucible ready. Mode: {mode}Crucible
+        ready. Mode: {mode}Crucible ready. Mode: {mode}Crucible ready. Mode: {mode}Crucible ready.
+        Mode: {mode}Crucible ready. Mode: {mode}Crucible ready. Mode: {mode}Crucible ready. Mode:{' '}
+        {mode}
+      </Text>
     </Layout>
   );
 }

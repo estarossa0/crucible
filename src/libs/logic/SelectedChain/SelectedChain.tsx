@@ -71,6 +71,7 @@ export function SelectedChain() {
 
   return (
     <Box flexDirection="column">
+      <ChainSelect options={filteredOptions} value={highlightedValue} onChange={handleChange} />
       <Text>
         {filterText ? (
           <>
@@ -92,7 +93,6 @@ export function SelectedChain() {
           </>
         )}
       </Text>
-      <ChainSelect options={filteredOptions} value={highlightedValue} onChange={handleChange} />
     </Box>
   );
 }

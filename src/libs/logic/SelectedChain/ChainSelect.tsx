@@ -15,6 +15,12 @@ export function ChainSelect({ options, value, onChange }: ChainSelectProps) {
 
   return (
     <Select
+      minWidth={20}
+      position="absolute"
+      backgroundColor="black"
+      bottom={2}
+      borderColor="white"
+      borderStyle="round"
       options={options}
       value={value}
       onChange={onChange}

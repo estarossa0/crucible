@@ -21,24 +21,39 @@ export function Layout({ children }: LayoutProps) {
   const { enabledOverlay } = useApp();
 
   return (
-    <Box flexDirection="column" width={width} height={height} borderStyle="round" paddingX={1}>
-      <Box flexDirection="column-reverse">
-        <Box>{children}</Box>
+    <Box
+      justifyContent="space-between"
+      flexDirection="column"
+      width={width}
+      height={height}
+      borderStyle="round"
+      paddingX={1}
+    >
+      <Box flexGrow={1}>{children}</Box>
 
-        <Box>
-          <StatusBar />
+      <Box justifyContent="space-between" flexDirection="column">
+        {/* mode / network */}
+        <StatusBar />
+
+        {/* KeyHints  */}
+        <Box
+          borderColor="whiteBright"
+          borderTop
+          borderStyle="classic"
+          borderBottom={false}
+          borderLeft={false}
+          borderRight={false}
+          justifyContent="space-between"
+        >
+          <Box>{/* mode-specific keybindings (left) */}</Box>
+          {enabledOverlay !== null ? (
+            <Box>
+              <KeyHints hints={OVERLAY_HINTS} />
+            </Box>
+          ) : (
+            <AppKeyBindings />
+          )}
         </Box>
-      </Box>
-
-      <Box justifyContent="space-between">
-        <Box>{/* mode-specific keybindings (left) */}</Box>
-        {enabledOverlay !== null ? (
-          <Box>
-            <KeyHints hints={OVERLAY_HINTS} />
-          </Box>
-        ) : (
-          <AppKeyBindings />
-        )}
       </Box>
     </Box>
   );
