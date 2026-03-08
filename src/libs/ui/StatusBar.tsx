@@ -1,9 +1,10 @@
 import { Box, Text } from 'ink';
 
 import { useApp } from '@logic/AppContext';
+import { SelectedChain } from '@logic/SelectedChain';
 
 export function StatusBar() {
-  const { mode, chain } = useApp();
+  const { mode } = useApp();
 
   return (
     <Box gap={2}>
@@ -11,7 +12,7 @@ export function StatusBar() {
         {mode.toUpperCase()}
       </Text>
       <Text dimColor>|</Text>
-      <Text color="yellow">{chain}</Text>
+      <SelectedChain />
     </Box>
   );
 }

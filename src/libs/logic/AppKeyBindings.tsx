@@ -1,6 +1,6 @@
 import { Box, useInput } from 'ink';
 
-import { useApp } from '@logic/AppContext';
+import { OverlayType, useApp } from '@logic/AppContext';
 import { KeyHints } from '@ui/KeyHints';
 
 const DEFAULT_HINTS = [
@@ -9,14 +9,16 @@ const DEFAULT_HINTS = [
 ];
 
 export function AppKeyBindings() {
-  const { cycleChain, exit } = useApp();
+  const { enabledOverlay, openOverlay, exit } = useApp();
 
   useInput((input, key) => {
+    if (enabledOverlay !== null) return;
+
     if (input === 'q' || (key.ctrl && input === 'c')) {
       exit();
     }
     if (input === 'c') {
-      cycleChain();
+      openOverlay(OverlayType.ChainSelect);
     }
   });
 
