@@ -1,12 +1,13 @@
 {
   "name": "crucible",
-  "module": "src/app.ts",
+  "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun run src/app.ts"
+    "dev": "bun run --watch src/index.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/react": "19.1.2"
   },
   "peerDependencies": {
     "typescript": "^5"
